@@ -1,0 +1,9 @@
+.header {
+  grid-area: header;
+  padding: 20px 20px;
+  background-color: #0066ff;
+  color: #ffffff;
+  font-family: sans-serif, Arial;
+  font-weight: 600;
+  font-size: 18px;
+}

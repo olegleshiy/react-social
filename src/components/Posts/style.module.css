@@ -1,0 +1,27 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-area: chat;
+    padding: 20px;
+}
+
+.chat .item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.chat .text {
+    margin: 0;
+}
+.chatImg {
+    display: block;
+    background-color: #dbb483;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 20px;
+}

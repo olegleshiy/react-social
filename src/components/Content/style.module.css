@@ -1,0 +1,82 @@
+.content {
+  grid-area: content;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 200px 200px 150px 1fr;
+  grid-template-columns: 1fr minmax(300px, 300px);
+  grid-template-areas:
+            "banner banner"
+            "info news"
+            "posts news"
+            "chat news";
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  grid-area: banner;
+  width: 100%;
+  background-image: url("https://img5.goodfon.ru/wallpaper/nbig/4/f6/markus-spiske-temporausch-by-markus-spiske-temporausch-mar-2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title {
+  color: #ffffff;
+  font-family: sans-serif, Arial;
+  font-size: 40px;
+  line-height: 42px;
+  padding: 0 25px;
+  margin: auto 0;
+}
+.news {
+  grid-area: news;
+  background-color: #dbb483;
+}
+
+.info {
+  grid-area: info;
+  display: flex;
+  padding: 20px;
+}
+
+.avatar {
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.titleName {
+  font-family: sans-serif, Arial;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.infoAddress {
+  font-family: sans-serif, Arial;
+  font-size: 18px;
+  margin: 0;
+}
+.userInfo {
+  padding: 0 25px;
+}
+
+@media all and (max-width: 1024px){
+  .content {
+    grid-template-rows: 150px 200px 150px 1fr;
+    grid-template-columns: 500px;
+    grid-template-areas:
+            "banner banner"
+            "info"
+            "posts"
+            "chat";
+  }
+
+  .news {
+    display: none;
+  }
+}
+

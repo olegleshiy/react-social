@@ -1,7 +1,7 @@
 import Header from './Header';
 import Footer from './Footer';
 import Button from './Button';
-import Content from './Content';
+import Dashboard from './Dashboard';
 import Spinner from './Spinner';
 import Navbar from './Navbar';
 import Composer from './Composer';
@@ -12,12 +12,15 @@ import SignUpForm from './SignUpForm';
 import Posts from './Posts';
 import PostCreator from './PostCreator';
 import Dialog from './Dialog';
+import DialogItem from './DialogItem';
+import MessageItem from './MessageItem';
+import Profile from './Profile';
 
 export {
     Header,
     Footer,
     Button,
-    Content,
+    Dashboard,
     Spinner,
     Navbar,
     Composer,
@@ -28,4 +31,7 @@ export {
     Posts,
     PostCreator,
     Dialog,
+    DialogItem,
+    MessageItem,
+    Profile,
 }

@@ -1,16 +1,3 @@
-.content {
-  grid-area: content;
-  display: grid;
-  width: 100%;
-  grid-template-rows: 200px 200px 150px 1fr;
-  grid-template-columns: 1fr minmax(300px, 300px);
-  grid-template-areas:
-            "banner banner"
-            "info news"
-            "posts news"
-            "chat news";
-}
-
 .banner {
   display: flex;
   flex-direction: column;
@@ -65,16 +52,6 @@
 }
 
 @media all and (max-width: 1024px){
-  .content {
-    grid-template-rows: 150px 200px 150px 1fr;
-    grid-template-columns: 500px;
-    grid-template-areas:
-            "banner banner"
-            "info"
-            "posts"
-            "chat";
-  }
-
   .news {
     display: none;
   }

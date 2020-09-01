@@ -1,9 +1,12 @@
 // Core
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
 
 // Components
+import {
+    DialogItem,
+    MessageItem
+} from '../index';
+
 // Style
 import Styles from './style.module.css';
 
@@ -48,37 +51,10 @@ const Dialog = () => {
         }
     ];
 
-    const listUser = data.map(user => {
-        return (
-            <div className={ Styles.item } key={ user.id }>
-                <img className={ Styles.avatar }
-                     src={ user.avatar } alt=''/>
-                <div className={ Styles.userInfo }>
-                    <NavLink to={`/dialogs/${user.id}`} className={ Styles.userName }>{ user.name }</NavLink>
-                    <span className={ `${ Styles.userStatus } ${ Styles.online }` }>{ user.status }</span>
-                </div>
-            </div>
-        );
-    });
-
-    const listMessage = dataMessage.map(msg => {
-        return (
-            <div className={ Styles.messageItem } key={ msg.id }>
-                <img className={ Styles.avatar }
-                     src={ msg.avatar }
-                     alt=''/>
-                <p className={ Styles.message }>{ msg.message }</p>
-            </div>
-        );
-    });
     return (
         <div className={ Styles.dialogs }>
-            <div className={ Styles.users }>
-                { listUser }
-            </div>
-            <div className={ Styles.chat }>
-                { listMessage }
-            </div>
+            <DialogItem data={ data } />
+            <MessageItem dataMessage={ dataMessage } />
         </div>
     );
 };

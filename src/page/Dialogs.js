@@ -1,8 +1,8 @@
 // Core
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 // Components
-import { Spinner, Composer, Footer, Header, Navbar, Content, Dialog } from '../components';
+import { Spinner, Composer, Footer, Header, Navbar, Dialog } from '../components';
 import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 const Dialogs = () => {

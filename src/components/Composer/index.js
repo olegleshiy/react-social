@@ -4,7 +4,7 @@ import React from 'react';
 // Components
 import {
     Navbar,
-    Content,
+    Dashboard,
 } from '../index';
 
 // Style
@@ -14,7 +14,7 @@ const Composer = () => {
     return (
         <main className={ Styles.composer }>
             <Navbar/>
-            <Content/>
+            <Dashboard/>
         </main>
     );
 };

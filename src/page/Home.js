@@ -1,8 +1,8 @@
 // Core
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 // Components
-import { Spinner, Composer, Footer, Header, Navbar, Content } from '../components';
+import { Spinner, Composer, Footer, Header, Navbar, Dashboard } from '../components';
 import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
             <Spinner />
             <Header />
             <Navbar/>
-            <Content />
+            <Dashboard />
             <Footer />
         </div>
     );

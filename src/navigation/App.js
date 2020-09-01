@@ -2,8 +2,7 @@
 import React from 'react';
 
 // Route
-import Private from './Private';
-import Public from './Public';
+import { Private, Public } from './index';
 
 // Context
 import { SpinnerProvider } from '../components/Spinner/SpinnerContext';

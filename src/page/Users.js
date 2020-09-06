@@ -6,9 +6,9 @@ import { Spinner, Footer, Header, Navbar } from '../components';
 import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 // Container
-import DashboardContainer from '../containers/DashboardContainer';
+import UsersContainer from '../containers/UsersContainer';
 
-const Home = () => {
+const Users = () => {
 
     const toggle = useSpinner();
 
@@ -21,10 +21,10 @@ const Home = () => {
             <Spinner/>
             <Header/>
             <Navbar/>
-            <DashboardContainer />
+            <UsersContainer />
             <Footer/>
         </div>
     );
 };
 
-export default Home;
+export default Users;

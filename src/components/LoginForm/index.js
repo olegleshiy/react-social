@@ -11,7 +11,10 @@ const LoginForm = () => {
                 <h1>Login</h1>
                 <input type='text' placeholder='Email'/>
                 <input type='text' placeholder='Password'/>
-                <button className={ 'btn btn--width' }>Login</button>
+                <button
+                    className={ 'btn btn--width' }
+
+                >Login</button>
             </form>
         </div>
     );

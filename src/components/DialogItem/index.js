@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 // Style
 import Styles from './style.module.css';
 
-const DialogItem = (props) => {
-    const listUser = props.data.map(user => {
+const DialogItem = ({ users }) => {
+    const listUser = users.map(user => {
         return (
             <div className={ Styles.item } key={ user.id }>
                 <img className={ Styles.avatar }

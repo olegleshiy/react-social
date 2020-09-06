@@ -1,8 +1,10 @@
 // Core
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faEnvelope, faUsers, faNewspaper, faMusic, faAddressCard, faCog } from '@fortawesome/free-solid-svg-icons';
 
-// U
+// Navigation
 import { book } from '../../navigation/book';
 
 // Style
@@ -13,22 +15,25 @@ const Navbar = () => {
         <div className={ Styles.sidebar }>
             <ul>
                 <li className={Styles.item}>
-                    <NavLink to={ book.home } activeClassName={ Styles.activeLink }>Home</NavLink>
+                    <NavLink to={ book.home }><FontAwesomeIcon icon={faHome} /> Home</NavLink>
                 </li>
                 <li className={Styles.item}>
-                    <NavLink to={ book.dialogs } activeClassName={ Styles.activeLink }>Messages</NavLink>
+                    <NavLink to={ book.dialogs } activeClassName={ Styles.activeLink }><FontAwesomeIcon icon={faEnvelope} /> Messages</NavLink>
                 </li>
                 <li className={Styles.item}>
-                    <NavLink to='#d' activeClassName={ Styles.activeLink }>News</NavLink>
+                    <NavLink to={ book.users } activeClassName={ Styles.activeLink }><FontAwesomeIcon icon={faUsers} /> Users</NavLink>
                 </li>
                 <li className={Styles.item}>
-                    <NavLink to='#d'>Music</NavLink>
+                    <NavLink to='#d'><FontAwesomeIcon icon={faNewspaper} /> News</NavLink>
                 </li>
                 <li className={Styles.item}>
-                    <NavLink to='#d'>Profile</NavLink>
+                    <NavLink to='#d'><FontAwesomeIcon icon={faMusic} /> Music</NavLink>
                 </li>
                 <li className={Styles.item}>
-                    <NavLink to='#d'>Settings</NavLink>
+                    <NavLink to='#d'><FontAwesomeIcon icon={faAddressCard} /> Profile</NavLink>
+                </li>
+                <li className={Styles.item}>
+                    <NavLink to='#d'><FontAwesomeIcon icon={faCog} /> Settings</NavLink>
                 </li>
             </ul>
         </div>

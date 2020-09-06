@@ -2,8 +2,11 @@
 import React, { useEffect } from 'react';
 
 // Components
-import { Spinner, Composer, Footer, Header, Navbar, Dialog } from '../components';
+import { Spinner, Footer, Header, Navbar } from '../components';
 import { useSpinner } from '../components/Spinner/SpinnerContext';
+
+// Container
+import DialogContainer from '../containers/DialogContainer';
 
 const Dialogs = () => {
     const toggle = useSpinner();
@@ -17,7 +20,7 @@ const Dialogs = () => {
             <Spinner />
             <Header />
             <Navbar/>
-            <Dialog />
+            <DialogContainer />
             <Footer />
         </div>
     );

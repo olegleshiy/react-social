@@ -5,16 +5,18 @@ import { NavLink } from 'react-router-dom';
 // Style
 import Styles from './style.module.css';
 
-const UsersList = (props) => {
+const UsersList = ({ props }) => {
     const { users, getUsersMore, followUser } = props;
 
     const handleClick = () => {
         getUsersMore();
     }
 
-    const handleFollow = () => {
-        followUser();
+    const handleFollow = (e) => {
+        followUser(e.target.dataset.id);
     }
+
+
 
     const listUser = users.map(user => {
         return (
@@ -27,10 +29,10 @@ const UsersList = (props) => {
                     </div>
                     <div className={Styles.locationWrapper}>
                         <div className={Styles.infoLocationWrapper}>
-                            <span className={ `${ Styles.userLocation }` }>{ user.city }, { user.city }</span>
+                            <span className={ `${ Styles.userLocation }` }>{ user.city }, { user.country }</span>
                             <span className={ `${ Styles.userStatus } ${ Styles.online }` }>{ user.status }</span>
                         </div>
-                        <button onClick={ handleFollow } className={Styles.followBtn}>Follow</button>
+                        <button onClick={ handleFollow } className={ Styles.followBtn } data-id={ user.id }>{user.followed ? 'Unfollow' : 'Follow'}</button>
                     </div>
                 </div>
             </div>

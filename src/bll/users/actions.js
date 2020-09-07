@@ -2,14 +2,16 @@
 import { types } from './types';
 
 export const actions = {
-    showAllUsersAC: () => {
+    showAllUsersAC: (payload) => {
         return {
             type: types.SHOW_ALL_USERS,
+            payload,
         };
     },
-    getMoreUsersAC: () => {
+    getMoreUsersAC: (payload) => {
         return {
             type: types.GET_MORE_USERS,
+            payload,
         };
     },
     followUserAC: (payload) => {
@@ -18,5 +20,4 @@ export const actions = {
             payload,
         }
     }
-
 };

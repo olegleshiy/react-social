@@ -12,7 +12,7 @@ const Users = (props) => {
     return (
         <div className={ Styles.content }>
             <UsersList
-                users={ props.users }
+                props={ props }
             />
         </div>
     );

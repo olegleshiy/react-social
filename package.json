@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "classnames": "^2.2.6",
     "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
@@ -27,8 +28,8 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "PORT=3007 NODE_ENV=development react-scripts start",
-    "prod": "PORT=3007 NODE_ENV=production react-scripts start",
+    "start": "PORT=3001 NODE_ENV=development react-scripts start",
+    "prod": "PORT=3001 NODE_ENV=production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.20.0",
     "cross-env": "^7.0.2",
     "redux-devtools": "^3.6.1",
     "redux-devtools-extension": "^2.13.8"

@@ -4,6 +4,9 @@ import { actions } from '../bll/users/actions';
 
 const mapStateToProps = state => ({
     users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalUsersCount: state.usersPage.totalUsersCount,
+    currentPage: state.usersPage.currentPage,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -15,6 +18,12 @@ const mapDispatchToProps = dispatch => ({
     },
     followUser: data => {
         return dispatch(actions.followUserAC(data));
+    },
+    setCurrentPage: data => {
+        return dispatch(actions.setCurrentPageAC(data));
+    },
+    setTotalUsersCount: data => {
+        return dispatch(actions.setTotalUsersCountAC(data));
     }
 });
 

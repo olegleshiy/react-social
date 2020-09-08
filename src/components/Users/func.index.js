@@ -1,12 +1,33 @@
 // Core
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+
+// Instruments
+import avatar from '../../assets/images/user.png';
+
+// API
+import { fetchUsers } from '../../bll/users/thunk/fetchUsers';
 
 // Style
 import Styles from './style.module.css';
 
-const UsersList = ({ props }) => {
-    const { users, getUsersMore, followUser } = props;
+const Users = (props) => {
+    const { users, getUsersMore, followUser, showAllUsers } = props;
+
+    useEffect(() => {
+        (async () => {
+                const users = await fetchUsers();
+                showAllUsers(users.items);
+            }
+        )()
+    }, []);
+
+    const getUsersAll = async () => {
+        if(props.users.length === 0) {
+            const users = await fetchUsers();
+            showAllUsers(users.items);
+        }
+    }
 
     const handleClick = () => {
         getUsersMore();
@@ -16,13 +37,11 @@ const UsersList = ({ props }) => {
         followUser(e.target.dataset.id);
     }
 
-
-
     const listUser = users.map(user => {
         return (
             <div className={ Styles.item } key={ user.id }>
                 <img className={ Styles.avatar }
-                     src={ user.avatar } alt=''/>
+                     src={ user.photos.small || avatar } alt='' />
                 <div className={ Styles.userInfo }>
                     <div>
                         <NavLink to={`/dialogs/${user.id}`} className={ Styles.userName }>{ user.name }</NavLink>
@@ -40,13 +59,16 @@ const UsersList = ({ props }) => {
     });
 
     return (
-        <div className={ Styles.users }>
-            <div className={Styles.usersWrapper}>
-                { listUser }
+        <div className={ Styles.content }>
+            <div className={ Styles.users }>
+                <div className={Styles.usersWrapper}>
+                    { listUser }
+                </div>
+                <button className={Styles.button} onClick={getUsersAll}>Get Users</button>
+                <button className={Styles.button} onClick={handleClick}>SHOW MORE</button>
             </div>
-            <button className={Styles.button} onClick={handleClick}>SHOW MORE</button>
         </div>
-    )
-}
+    );
+};
 
-export default UsersList;
+export default Users;

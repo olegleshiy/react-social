@@ -19,5 +19,17 @@ export const actions = {
             type: types.FOLLOW_USER,
             payload,
         }
-    }
+    },
+    setCurrentPageAC: (payload) => {
+        return {
+            type: types.SET_CURRENT_PAGE,
+            payload,
+        }
+    },
+    setTotalUsersCountAC: (payload) => {
+        return {
+            type: types.SET_TOTAL_USERS_COUNT,
+            payload,
+        }
+    },
 };

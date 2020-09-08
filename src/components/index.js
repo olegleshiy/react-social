@@ -16,7 +16,6 @@ import DialogItem from './DialogItem';
 import MessageItem from './MessageItem';
 import Profile from './Profile';
 import Users from './Users';
-import UsersList from './UsersList';
 
 export {
     Header,
@@ -37,5 +36,4 @@ export {
     MessageItem,
     Profile,
     Users,
-    UsersList,
 }

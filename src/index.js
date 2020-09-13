@@ -2,16 +2,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import App from './navigation/App';
+//import App from './navigation/App';
 import * as serviceWorker from './serviceWorker';
 
 import store from './init/store';
+import UiContainer from './containers/UiContainer';
 
 render(
     <React.StrictMode>
         <Provider store={ store }>
             <Router>
-                <App/>
+                <UiContainer />
             </Router>
         </Provider>
     </React.StrictMode>,

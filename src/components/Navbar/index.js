@@ -24,6 +24,9 @@ const Navbar = () => {
                     <NavLink to={ book.users } activeClassName={ Styles.activeLink }><FontAwesomeIcon icon={faUsers} /> Users</NavLink>
                 </li>
                 <li className={Styles.item}>
+                    <NavLink to={ book.profile } activeClassName={ Styles.activeLink }><FontAwesomeIcon icon={faUsers} /> Profile</NavLink>
+                </li>
+                <li className={Styles.item}>
                     <NavLink to='#d'><FontAwesomeIcon icon={faNewspaper} /> News</NavLink>
                 </li>
                 <li className={Styles.item}>

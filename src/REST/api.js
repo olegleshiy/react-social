@@ -111,4 +111,14 @@ export const api = {
             });
         },
     },
+    user: {
+        fetch (id) {
+            return fetch(`${MAIN_URL}/profile/${id}`, {
+                method:  'GET',
+                // headers: {
+                //     Authorization: this.token,
+                // },
+            });
+        },
+    },
 };

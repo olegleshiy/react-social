@@ -5,6 +5,7 @@ import NewPassword from './NewPassword';
 import SignUp from './SignUp';
 import Dialogs from './Dialogs';
 import Users from './Users';
+import Profile from './Profile';
 
 export {
     Login,
@@ -14,4 +15,5 @@ export {
     SignUp,
     Dialogs,
     Users,
+    Profile,
 }

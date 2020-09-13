@@ -5,19 +5,18 @@ import React from 'react';
 import { Private, Public } from './index';
 
 // Context
-import { SpinnerProvider } from '../components/Spinner/SpinnerContext';
+//import { SpinnerProvider } from '../components/Spinner/SpinnerContext';
 
 // Style
 import './style.css';
+//import UiContainer from '../containers/UiContainer';
 
-const App = () => {
+const App = (props) => {
     const isAuthenticated = true;
 
     return (
         <>
-            <SpinnerProvider>
-            { isAuthenticated ? <Private/> : <Public/> }
-            </SpinnerProvider>
+            { isAuthenticated ? <Private {...props}/> : <Public {...props}/> }
         </>
     );
 };

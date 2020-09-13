@@ -1,17 +1,28 @@
 //Types
 import { types } from './types';
+import { fetchUser } from './thunk/fetchUser';
+import { actions as ui } from '../ui/actions';
 
 export const actions = {
-    addPostAC: (payload) => {
+    setUserProfileAC: (payload) => {
         return {
-            type: types.ADD_POST,
+            type: types.SET_USER_PROFILE,
             payload,
         };
     },
-    updateNewPostAC: (payload) => {
-        return {
-            type: types.UPDATE_NEW_POST_TEXT,
-            payload,
+};
+
+export const getUser = (id) => {
+    return async (dispatch) => {
+        try {
+            dispatch(ui.fetchingStart());
+            const user = await fetchUser(id);
+            console.log('USER', user);
+            dispatch(actions.setUserProfileAC(user));
+        } catch (e) {
+            console.log(e);
+        } finally {
+            dispatch(ui.fetchingStop());
         }
     }
 };

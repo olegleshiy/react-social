@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Users } from '../components';
-import { actions } from '../bll/users/actions';
+import { actions, getUsersAll, getCurrentPage } from '../bll/users/actions';
 
 const mapStateToProps = state => ({
     users: state.usersPage.users,
@@ -9,23 +9,14 @@ const mapStateToProps = state => ({
     currentPage: state.usersPage.currentPage,
 });
 
-const mapDispatchToProps = dispatch => ({
-    showAllUsers: data => {
-        return dispatch(actions.showAllUsersAC(data));
-    },
-    getMoreUsers: data => {
-        return dispatch(actions.getMoreUsersAC(data));
-    },
-    followUser: data => {
-        return dispatch(actions.followUserAC(data));
-    },
-    setCurrentPage: data => {
-        return dispatch(actions.setCurrentPageAC(data));
-    },
-    setTotalUsersCount: data => {
-        return dispatch(actions.setTotalUsersCountAC(data));
-    }
-});
+const mapDispatchToProps = {
+    getUsersAll,
+    getCurrentPage,
+    showAllUsers: actions.showAllUsersAC,
+    getMoreUsers: actions.getMoreUsersAC,
+    followUser: actions.followUserAC,
+    setTotalUsersCount: actions.setTotalUsersCountAC,
+};
 
 export default connect(
     mapStateToProps,

@@ -1,27 +1,31 @@
 // Core
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { book } from './book';
 
 // Page
-import { Home, NewPassword, Dialogs, Users } from '../page';
+import { Home, NewPassword, Dialogs, Profile, Users } from '../page';
 
-const Private = () => {
+const Private = (props) => {
 
     return (
         <Switch>
             <Route
                 exact
                 path={ book.home }
-                component={ Home }
+                render={ () => <Home {...props}/> }
             />
             <Route
                 path={ book.dialogs }
-                component={ Dialogs }
+                render={ () => <Dialogs {...props} /> }
             />
             <Route
                 path={ book.users }
-                component={ Users }
+                render={ () => <Users {...props}/> }
+            />
+            <Route
+                path={ book.profile }
+                render={ () => <Profile {...props}/> }
             />
             <Route
                 path={ book.newPassword }

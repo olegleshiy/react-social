@@ -1,14 +1,18 @@
 import { combineReducers } from 'redux';
 import { dialogsReducer } from '../bll/dialog/reducer';
-import { profileReducer } from '../bll/profile/reducer';
+import { dashboardReducer } from '../bll/dashboard/reducer';
 import { usersReducer } from '../bll/users/reducer';
+import { profileReducer } from '../bll/profile/reducer';
 import { sidebarReducer } from '../bll/sidebar/reducer';
+import { uiReducer } from '../bll/ui/reducer';
 
 const rootReducer = combineReducers({
-    profilePage: profileReducer,
+    dashboardPage: dashboardReducer,
     dialogPage: dialogsReducer,
     usersPage: usersReducer,
-    sidebar: sidebarReducer
+    profilePage: profileReducer,
+    sidebar: sidebarReducer,
+    ui: uiReducer,
 });
 
 export default rootReducer;

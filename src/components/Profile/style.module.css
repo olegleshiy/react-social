@@ -17,10 +17,6 @@
   padding: 0 25px;
   margin: auto 0;
 }
-.news {
-  grid-area: news;
-  background-color: #dbb483;
-}
 
 .info {
   grid-area: info;

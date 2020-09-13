@@ -13,13 +13,13 @@ const Dashboard = (props) => {
     //     return props.posts,
     // }
 
-    useEffect(() => {
-        console.log('POS', props);
-    }, [])
+    // useEffect(() => {
+    //     console.log('POS', props);
+    // }, [])
 
     return (
         <div className={ Styles.content }>
-            <Profile/>
+            <Profile {...props}/>
             <PostCreator {...props} />
             <Posts
                 posts={ props.posts }

@@ -5,32 +5,28 @@ import { NavLink } from 'react-router-dom';
 // Instruments
 import avatar from '../../assets/images/user.png';
 
-// API
-import { fetchUsers } from '../../bll/users/thunk/fetchUsers';
-
 // Style
 import Styles from './style.module.css';
 
 class Users extends Component {
 
     componentDidMount() {
-        this.getUsersAll(2, 3);
-        this.props.setTotalUsersCount();
+        this.props.getUsersAll({page: 1, count: 30});
     }
-
-    getUsersAll = async (page, count) => {
-        const users = await fetchUsers(page, count);
-        this.props.showAllUsers(users.items);
-    };
 
     handleClick = () => {
         this.props.getUsersMore();
     };
 
+    handleSelectUser(e) {
+        //e.preventDefault();
+
+        //this.props.getUser(e.target.dataset.id);
+    }
+
     handlePaginationClick = (e) => {
         const currentPage = Number(e.target.dataset.id);
-        this.props.setCurrentPage(currentPage);
-        this.getUsersAll(currentPage, 3);
+        this.props.getCurrentPage(currentPage, 30);
     };
 
     handleFollow = (e) => {
@@ -41,12 +37,24 @@ class Users extends Component {
         const listUser = this.props.users.map(user => {
             return (
                 <div className={ Styles.item } key={ user.id }>
-                    <img className={ Styles.avatar }
-                         src={ user.photos.small || avatar } alt='' />
+                    <div>
+                        <NavLink
+                            data-id={ user.id }
+                            to={ `/profile/${ user.id }` }
+                            onClick={this.handleSelectUser}
+                        >
+                            <img className={ Styles.avatar }
+                                 src={ user.photos.small || avatar } alt='' />
+                        </NavLink>
+                    </div>
                     <div className={ Styles.userInfo }>
                         <div>
-                            <NavLink to={ `/dialogs/${ user.id }` }
-                                     className={ Styles.userName }>{ user.name }</NavLink>
+                            <NavLink
+                                data-id={ user.id }
+                                to={ `/profile/${ user.id }` }
+                                className={ Styles.userName }
+                                onClick={this.handleSelectUser}
+                            >{ user.name }</NavLink>
                         </div>
                         <div className={ Styles.locationWrapper }>
                             <div className={ Styles.infoLocationWrapper }>
@@ -64,18 +72,38 @@ class Users extends Component {
         let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
         let pages = [];
-        for (let i = 0; i <= pagesCount; i++) {
+        for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         }
 
         return (
             <div className={ Styles.content }>
                 <div className={ Styles.pagination }>
-                    { pages.map(p => {
-                        return <span key={ p } data-id={ p }
-                                     className={ this.props.currentPage === p && Styles.selectedPage }
-                                     onClick={ this.handlePaginationClick }>{ p }</span>;
+                    <>
+                    { pages.map((p, i) => {
+                        if (i === 0 || i === 1 || i === 2) {
+                            return (
+                        <span key={ p } data-id={ p }
+                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
+                              onClick={ this.handlePaginationClick }>{ p }</span>
+
+                            )
+                        } else if (i === pages.length - 1 || i === pages.length - 2 || i === pages.length - 3) {
+                            return (
+                        <span key={ p } data-id={ p }
+                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
+                              onClick={ this.handlePaginationClick }>{ p }</span>
+                            )
+
+                        } else if (i === 3) {
+                            return (
+
+                        <span key='dsg36236sd'>...</span>
+                            )
+                        }
+
                     }) }
+                    </>
                 </div>
 
                 <div className={ Styles.users }>

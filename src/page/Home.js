@@ -3,18 +3,18 @@ import React, { useEffect } from 'react';
 
 // Components
 import { Spinner, Footer, Header, Navbar } from '../components';
-import { useSpinner } from '../components/Spinner/SpinnerContext';
+//import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 // Container
 import DashboardContainer from '../containers/DashboardContainer';
 
 const Home = () => {
 
-    const toggle = useSpinner();
-
-    useEffect(() => {
-        toggle.toggle();
-    });
+    // const toggle = useSpinner();
+    //
+    // useEffect(() => {
+    //     toggle.toggle();
+    // });
 
     return (
         <div className={ 'wrapper' }>

@@ -6,7 +6,7 @@ import { api } from '../../../REST';
 //import { showAllUsersAC } from '../actions';
 //import { uiActions } from '../../../ui/actions';
 
-export async function fetchUsers (page, count) {
+export async function fetchUsers (page = '', count = '') {
     try {
         //yield put(uiActions.startFetching());
 

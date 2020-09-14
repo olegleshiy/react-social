@@ -1,11 +1,11 @@
 // Core
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
 
 // Instruments
 import avatar from '../../assets/images/user.png';
 
-// API
 import { fetchUsers } from '../../bll/users/thunk/fetchUsers';
 
 // Style
@@ -14,31 +14,37 @@ import Styles from './style.module.css';
 class Users extends Component {
 
     componentDidMount() {
-        this.getUsersAll(2, 3);
-        this.props.setTotalUsersCount();
+        //this.props.fetchingStartAC();
+        //this.props.getAllUsers();
+        (async () => {
+            const users = await fetchUsers()
+        } )
+
     }
 
-    getUsersAll = async (page, count) => {
-        const users = await fetchUsers(page, count);
-        this.props.showAllUsers(users.items);
-    };
-
     handleClick = () => {
-        this.props.getUsersMore();
+        this.props.getUsersMoreAC();
     };
-
+    // Показать нужную страницу записать номер текущей страницы
     handlePaginationClick = (e) => {
         const currentPage = Number(e.target.dataset.id);
-        this.props.setCurrentPage(currentPage);
-        this.getUsersAll(currentPage, 3);
-    };
+        this.props.setCurrentPageAC(currentPage);
 
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
+            .then(res => {
+                this.props.showAllUsersAC(res.data.items);
+            })
+        //this.props.getUsersAll(currentPage, 3);
+    };
+    // Подписка отписка
     handleFollow = (e) => {
-        this.props.followUser(e.target.dataset.id);
+        this.props.followUserAC(e.target.dataset.id);
     };
 
     render() {
-        const listUser = this.props.users.map(user => {
+        const {users, totalUsersCount, pageSize, currentPage, setCountPage } = this.props;
+
+        const listUser = users.map(user => {
             return (
                 <div className={ Styles.item } key={ user.id }>
                     <img className={ Styles.avatar }
@@ -61,10 +67,10 @@ class Users extends Component {
             );
         });
 
-        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
         let pages = [];
-        for (let i = 0; i <= pagesCount; i++) {
+        for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         }
 
@@ -72,9 +78,13 @@ class Users extends Component {
             <div className={ Styles.content }>
                 <div className={ Styles.pagination }>
                     { pages.map(p => {
-                        return <span key={ p } data-id={ p }
-                                     className={ this.props.currentPage === p && Styles.selectedPage }
-                                     onClick={ this.handlePaginationClick }>{ p }</span>;
+                        return <span
+                            key={ p }
+                            data-id={ p }
+
+                            className={ `${currentPage === p && Styles.selectedPage}` }
+
+                            onClick={ this.handlePaginationClick }>{ p }</span>;
                     }) }
                 </div>
 

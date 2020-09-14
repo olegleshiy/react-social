@@ -5,7 +5,7 @@ import React from 'react';
 import { Private, Public } from './index';
 
 // Context
-import { SpinnerProvider } from '../components/Spinner/SpinnerContext';
+//import { SpinnerProvider } from '../components/Spinner/SpinnerContext';
 
 // Style
 import './style.css';
@@ -15,9 +15,9 @@ const App = () => {
 
     return (
         <>
-            <SpinnerProvider>
+            {/*<SpinnerProvider>*/}
             { isAuthenticated ? <Private/> : <Public/> }
-            </SpinnerProvider>
+            {/*</SpinnerProvider>*/}
         </>
     );
 };

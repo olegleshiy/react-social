@@ -7,25 +7,23 @@ const mapStateToProps = state => ({
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
+    prevPage: state.usersPage.prevPage,
+    nextPage: state.usersPage.nextPage,
+    countPage: state.usersPage.countPage,
+    fetching: state.spinner.fetching,
 });
 
-const mapDispatchToProps = dispatch => ({
-    showAllUsers: data => {
-        return dispatch(actions.showAllUsersAC(data));
-    },
-    getMoreUsers: data => {
-        return dispatch(actions.getMoreUsersAC(data));
-    },
-    followUser: data => {
-        return dispatch(actions.followUserAC(data));
-    },
-    setCurrentPage: data => {
-        return dispatch(actions.setCurrentPageAC(data));
-    },
-    setTotalUsersCount: data => {
-        return dispatch(actions.setTotalUsersCountAC(data));
-    }
-});
+const mapDispatchToProps = {
+    showAllUsersAC: actions.showAllUsersAC,
+    getMoreUsersAC: actions.getMoreUsersAC,
+    followUserAC: actions.followUserAC,
+    setCurrentPageAC: actions.setCurrentPageAC,
+    setTotalUsersCountAC: actions.setTotalUsersCountAC,
+    setPrevPageAC: actions.setPrevPageAC,
+    setNextPageAC: actions.setNextPageAC,
+    setCountPageAC: actions.setCountPageAC,
+    getAllUsers: actions.getAllUsers,
+};
 
 export default connect(
     mapStateToProps,

@@ -33,9 +33,12 @@ const initialState = {
     // ],
 
     users: [],
-    pageSize: 5,
+    pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
+    countPage: 0,
+    prevPage: 0,
+    nextPage: 0,
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -43,7 +46,7 @@ export const usersReducer = (state = initialState, action) => {
         case types.SHOW_ALL_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.payload]
+                users: action.payload
             };
         case types.GET_MORE_USERS:
             return {
@@ -73,6 +76,21 @@ export const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 totalUsersCount: action.payload,
+            };
+        case types.SET_COUNT_PAGE:
+            return {
+                ...state,
+                countPage: action.payload,
+            };
+        case types.SET_PREV_PAGE:
+            return {
+                ...state,
+                prevPage: action.payload,
+            };
+        case types.SET_NEXT_PAGE:
+            return {
+                ...state,
+                nextPage: action.payload,
             };
         default:
             return state;

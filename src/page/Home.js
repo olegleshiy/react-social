@@ -2,13 +2,13 @@
 import React, { useEffect } from 'react';
 
 // Components
-import { Spinner, Footer, Header, Navbar } from '../components';
+import { Spinner, Footer, Header, Navbar, Catcher } from '../components';
 //import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 // Container
 import DashboardContainer from '../containers/DashboardContainer';
 
-const Home = () => {
+const Home = (props) => {
 
     // const toggle = useSpinner();
     //
@@ -17,13 +17,15 @@ const Home = () => {
     // });
 
     return (
-        <div className={ 'wrapper' }>
-            <Spinner/>
-            <Header/>
-            <Navbar/>
-            <DashboardContainer />
-            <Footer/>
-        </div>
+        <Catcher>
+            <div className={ 'wrapper' }>
+                <Spinner {...props}/>
+                <Header/>
+                <Navbar/>
+                <DashboardContainer />
+                <Footer/>
+            </div>
+        </Catcher>
     );
 };
 

@@ -16,7 +16,7 @@ export const api = {
             });
         },
         login (credentials) {
-            return fetch(`${MAIN_URL}/user/login`, {
+            return fetch(`${MAIN_URL}/auth/login`, {
                 method:  'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -104,6 +104,16 @@ export const api = {
     users: {
         fetch (page, count) {
             return fetch(`${MAIN_URL}/users?page=${page}&count=${count}`, {
+                method:  'GET',
+                // headers: {
+                //     Authorization: this.token,
+                // },
+            });
+        },
+    },
+    user: {
+        fetch (id) {
+            return fetch(`${MAIN_URL}/profile/${id}`, {
                 method:  'GET',
                 // headers: {
                 //     Authorization: this.token,

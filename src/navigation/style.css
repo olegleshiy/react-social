@@ -31,6 +31,15 @@ body {
             "footer footer";
 }
 
+.profile-page {
+  grid-template-rows: auto 150px 1fr auto;
+  grid-template-areas:
+            "header header"
+            "navbar banner"
+            "navbar info"
+            "footer footer";
+}
+
 .wrapper-auth {
   display: flex;
   flex-direction: column;

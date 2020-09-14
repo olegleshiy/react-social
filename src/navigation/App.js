@@ -1,5 +1,5 @@
 // Core
-import React from 'react';
+import React, {useEffect} from 'react';
 
 // Route
 import { Private, Public } from './index';
@@ -10,14 +10,17 @@ import { Private, Public } from './index';
 // Style
 import './style.css';
 
-const App = () => {
+const App = (props) => {
+    console.log("prrrr", props);
     const isAuthenticated = true;
+
+    useEffect(() => {
+
+    }, [])
 
     return (
         <>
-            {/*<SpinnerProvider>*/}
-            { isAuthenticated ? <Private/> : <Public/> }
-            {/*</SpinnerProvider>*/}
+            { props.isAuthenticated ? <Private {...props}/> : <Public {...props}/> }
         </>
     );
 };

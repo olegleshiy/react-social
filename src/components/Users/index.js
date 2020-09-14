@@ -1,12 +1,9 @@
 // Core
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
 
 // Instruments
 import avatar from '../../assets/images/user.png';
-
-import { fetchUsers } from '../../bll/users/thunk/fetchUsers';
 
 // Style
 import Styles from './style.module.css';
@@ -14,45 +11,51 @@ import Styles from './style.module.css';
 class Users extends Component {
 
     componentDidMount() {
-        //this.props.fetchingStartAC();
-        //this.props.getAllUsers();
-        (async () => {
-            const users = await fetchUsers()
-        } )
-
+        console.log("PRR", this.props);
+        this.props.fetchUsers(1, 30);
     }
 
     handleClick = () => {
-        this.props.getUsersMoreAC();
+        this.props.getUsersMore();
     };
-    // Показать нужную страницу записать номер текущей страницы
+
+    handleSelectUser(e) {
+        //e.preventDefault();
+
+        //this.props.getUser(e.target.dataset.id);
+    }
+
     handlePaginationClick = (e) => {
         const currentPage = Number(e.target.dataset.id);
-        this.props.setCurrentPageAC(currentPage);
-
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${this.props.pageSize}`)
-            .then(res => {
-                this.props.showAllUsersAC(res.data.items);
-            })
-        //this.props.getUsersAll(currentPage, 3);
+        this.props.getCurrentPage(currentPage, 30);
     };
-    // Подписка отписка
+
     handleFollow = (e) => {
-        this.props.followUserAC(e.target.dataset.id);
+        this.props.followUser(e.target.dataset.id);
     };
 
     render() {
-        const {users, totalUsersCount, pageSize, currentPage, setCountPage } = this.props;
-
-        const listUser = users.map(user => {
+        const listUser = this.props.users.map(user => {
             return (
                 <div className={ Styles.item } key={ user.id }>
-                    <img className={ Styles.avatar }
-                         src={ user.photos.small || avatar } alt='' />
+                    <div>
+                        <NavLink
+                            data-id={ user.id }
+                            to={ `/profile/${ user.id }` }
+                            onClick={this.handleSelectUser}
+                        >
+                            <img className={ Styles.avatar }
+                                 src={ user.photos.small || avatar } alt='' />
+                        </NavLink>
+                    </div>
                     <div className={ Styles.userInfo }>
                         <div>
-                            <NavLink to={ `/dialogs/${ user.id }` }
-                                     className={ Styles.userName }>{ user.name }</NavLink>
+                            <NavLink
+                                data-id={ user.id }
+                                to={ `/profile/${ user.id }` }
+                                className={ Styles.userName }
+                                onClick={this.handleSelectUser}
+                            >{ user.name }</NavLink>
                         </div>
                         <div className={ Styles.locationWrapper }>
                             <div className={ Styles.infoLocationWrapper }>
@@ -67,7 +70,7 @@ class Users extends Component {
             );
         });
 
-        let pagesCount = Math.ceil(totalUsersCount / pageSize);
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
@@ -77,15 +80,31 @@ class Users extends Component {
         return (
             <div className={ Styles.content }>
                 <div className={ Styles.pagination }>
-                    { pages.map(p => {
-                        return <span
-                            key={ p }
-                            data-id={ p }
+                    <>
+                    { pages.map((p, i) => {
+                        if (i === 0 || i === 1 || i === 2) {
+                            return (
+                        <span key={ p } data-id={ p }
+                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
+                              onClick={ this.handlePaginationClick }>{ p }</span>
 
-                            className={ `${currentPage === p && Styles.selectedPage}` }
+                            )
+                        } else if (i === pages.length - 1 || i === pages.length - 2 || i === pages.length - 3) {
+                            return (
+                        <span key={ p } data-id={ p }
+                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
+                              onClick={ this.handlePaginationClick }>{ p }</span>
+                            )
 
-                            onClick={ this.handlePaginationClick }>{ p }</span>;
+                        } else if (i === 3) {
+                            return (
+
+                        <span key='dsg36236sd'>...</span>
+                            )
+                        }
+
                     }) }
+                    </>
                 </div>
 
                 <div className={ Styles.users }>

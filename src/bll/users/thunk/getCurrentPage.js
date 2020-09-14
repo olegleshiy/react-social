@@ -5,7 +5,7 @@ import { api } from '../../../REST';
 import { actions as uiActions } from '../../ui/actions';
 import { actions } from '../actions';
 
-export function fetchUsers (page = '', count = '') {
+export function getCurrentPage (page = '', count = '') {
 
     return async (dispatch) => {
         try {
@@ -17,9 +17,9 @@ export function fetchUsers (page = '', count = '') {
             if (response.status !== 200) {
                 throw new Error('Some error fetchUsers');
             }
-
+            dispatch(actions.setCurrentPageAC(page));
             dispatch(actions.showAllUsersAC(data.items));
-            dispatch(actions.setTotalUsersCountAC(data.totalCount));
+
         } catch (error) {
             console.log(error);
             dispatch(uiActions.emitError(error));

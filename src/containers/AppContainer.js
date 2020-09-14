@@ -1,21 +1,16 @@
 import { connect } from 'react-redux';
-import { App } from '../navigation/App';
-import { actions } from '../bll/profile/actions';
+import App from '../navigation/App';
 
 const mapStateToProps = state => ({
-    fetching: state.spinner.fetching,
+    fetching: state.ui.fetching,
+    isAuthenticated: state.auth.isAuthenticated,
 });
 
-const mapDispatchToProps = dispatch => ({
-    fetchingStart: () => {
-        return dispatch(actions.fetchingStartAC())
-    },
-    fetchingStop: () => {
-        return dispatch(actions.fetchingStopAC())
-    },
-});
+const mapDispatchToProps = {
+
+};
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(App);

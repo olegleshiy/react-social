@@ -2,16 +2,10 @@
 import { types } from './types';
 
 export const actions = {
-    addPostAC: (payload) => {
+    setUserProfileAC: (payload) => {
         return {
-            type: types.ADD_POST,
+            type: types.SET_USER_PROFILE,
             payload,
         };
     },
-    updateNewPostAC: (payload) => {
-        return {
-            type: types.UPDATE_NEW_POST_TEXT,
-            payload,
-        }
-    }
 };

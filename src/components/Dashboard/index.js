@@ -1,25 +1,17 @@
 // Core
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Components
-import { PostCreator, Posts, Profile } from '../index';
+import { PostCreator, Posts, MyProfile } from '../index';
 
 // Style
 import Styles from './style.module.css';
 
 const Dashboard = (props) => {
 
-    // const postList = () => {
-    //     return props.posts,
-    // }
-
-    useEffect(() => {
-        console.log('POS', props);
-    }, [])
-
     return (
         <div className={ Styles.content }>
-            <Profile/>
+            <MyProfile {...props}/>
             <PostCreator {...props} />
             <Posts
                 posts={ props.posts }

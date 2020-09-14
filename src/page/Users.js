@@ -8,7 +8,7 @@ import { Spinner, Footer, Header, Navbar } from '../components';
 // Container
 import UsersContainer from '../containers/UsersContainer';
 
-const Users = () => {
+const Users = (props) => {
 
     // const toggle = useSpinner();
     //
@@ -18,7 +18,7 @@ const Users = () => {
 
     return (
         <div className={ 'wrapper' }>
-            <Spinner/>
+            <Spinner {...props}/>
             <Header/>
             <Navbar/>
             <UsersContainer />

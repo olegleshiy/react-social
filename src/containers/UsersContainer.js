@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { Users } from '../components';
 import { actions } from '../bll/users/actions';
+import { fetchUsers } from '../bll/users/thunk/fetchUsers';
+import { getCurrentPage } from '../bll/users/thunk/getCurrentPage';
 
 const mapStateToProps = state => ({
     users: state.usersPage.users,
@@ -10,19 +12,15 @@ const mapStateToProps = state => ({
     prevPage: state.usersPage.prevPage,
     nextPage: state.usersPage.nextPage,
     countPage: state.usersPage.countPage,
-    fetching: state.spinner.fetching,
 });
 
 const mapDispatchToProps = {
-    showAllUsersAC: actions.showAllUsersAC,
-    getMoreUsersAC: actions.getMoreUsersAC,
-    followUserAC: actions.followUserAC,
-    setCurrentPageAC: actions.setCurrentPageAC,
-    setTotalUsersCountAC: actions.setTotalUsersCountAC,
-    setPrevPageAC: actions.setPrevPageAC,
-    setNextPageAC: actions.setNextPageAC,
-    setCountPageAC: actions.setCountPageAC,
-    getAllUsers: actions.getAllUsers,
+    fetchUsers,
+    getCurrentPage,
+    showAllUsers: actions.showAllUsersAC,
+    getMoreUsers: actions.getMoreUsersAC,
+    followUser: actions.followUserAC,
+    setTotalUsersCount: actions.setTotalUsersCountAC,
 };
 
 export default connect(

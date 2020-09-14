@@ -16,6 +16,8 @@ import DialogItem from './DialogItem';
 import MessageItem from './MessageItem';
 import Profile from './Profile';
 import Users from './Users';
+import MyProfile from './MyProfile';
+import Catcher from './Catcher';
 
 export {
     Header,
@@ -36,4 +38,6 @@ export {
     MessageItem,
     Profile,
     Users,
+    MyProfile,
+    Catcher,
 }

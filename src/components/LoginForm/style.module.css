@@ -27,3 +27,16 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
+.rememberBlock {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0 0;
+}
+
+.rememberBlock input {
+  width: auto;
+  margin: 0 10px 0 0;
+}
+.rememberBlock label {
+}

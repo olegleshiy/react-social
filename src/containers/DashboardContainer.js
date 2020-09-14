@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { Dashboard } from '../components';
-import { actions } from '../bll/profile/actions';
+import { actions } from '../bll/dashboard/actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
-    newPostText: state.profilePage.newPostText,
-    posts: state.profilePage.posts,
+    newPostText: state.dashboardPage.newPostText,
+    posts: state.dashboardPage.posts,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,7 +17,9 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
+let withUrlDateDashboard = withRouter(Dashboard);
+
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Dashboard);
+)(withUrlDateDashboard);

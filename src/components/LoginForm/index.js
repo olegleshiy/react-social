@@ -15,6 +15,12 @@ const LoginForm = () => {
                     className={ 'btn btn--width' }
 
                 >Login</button>
+                <div className={ Styles.rememberBlock }>
+                    <input id='remember' type='checkbox' />
+                    <label htmlFor='remember'>
+                        Remember me
+                    </label>
+                </div>
             </form>
         </div>
     );

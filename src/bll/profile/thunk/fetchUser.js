@@ -5,21 +5,20 @@ import { api } from '../../../REST';
 import { actions as uiActions } from '../../ui/actions';
 import { actions } from '../actions';
 
-export function fetchUsers (page = '', count = '') {
-
+export function fetchUser (id) {
     return async (dispatch) => {
         try {
             dispatch(uiActions.fetchingStart());
 
-            const response = await api.users.fetch(page, count);
+            const response = await api.user.fetch(id);
             const data = await response.json();
 
             if (response.status !== 200) {
                 throw new Error('Some error fetchUsers');
             }
 
-            dispatch(actions.showAllUsersAC(data.items));
-            dispatch(actions.setTotalUsersCountAC(data.totalCount));
+            dispatch(actions.setUserProfileAC(data));
+
         } catch (error) {
             console.log(error);
             dispatch(uiActions.emitError(error));

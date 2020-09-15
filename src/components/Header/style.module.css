@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   grid-area: header;
   padding: 20px 20px;
   background-color: #0066ff;
@@ -6,4 +9,12 @@
   font-family: sans-serif, Arial;
   font-weight: 600;
   font-size: 18px;
+}
+
+.header .login {
+  color: #ffffff;
+  font-family: sans-serif, Arial;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
 }

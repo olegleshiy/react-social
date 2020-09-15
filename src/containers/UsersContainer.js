@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { Users } from '../components';
 import { actions } from '../bll/users/actions';
 import { fetchUsers } from '../bll/users/thunk/fetchUsers';
+import { followUsers } from '../bll/users/thunk/followUsers';
 import { getCurrentPage } from '../bll/users/thunk/getCurrentPage';
 
 const mapStateToProps = state => ({
@@ -17,9 +18,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     fetchUsers,
     getCurrentPage,
+    followUsers,
     showAllUsers: actions.showAllUsersAC,
     getMoreUsers: actions.getMoreUsersAC,
-    followUser: actions.followUserAC,
     setTotalUsersCount: actions.setTotalUsersCountAC,
 };
 

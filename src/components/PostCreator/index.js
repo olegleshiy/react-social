@@ -21,7 +21,7 @@ const PostCreator = (props) => {
     };
 
     return (
-        <form className={ Styles.posts }>
+        <div className={ Styles.posts }>
             <div className={ 'field-group' }>
                 <textarea
                     ref={ textareaPostRef }
@@ -38,7 +38,7 @@ const PostCreator = (props) => {
                 >Send
                 </button>
             </div>
-        </form>
+        </div>
     );
 };
 

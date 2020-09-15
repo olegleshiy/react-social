@@ -6,8 +6,8 @@ import Styles from './style.module.css';
 
 const ResetPasswordForm = () => {
     return (
-        <div className={Styles.wrapper}>
-            <form className={ Styles.loginForm }>
+        <div className={'wrapper-form'}>
+            <form className={ Styles.resetPasswordForm }>
                 <h1>Reset Password</h1>
                 <input type='text' placeholder='Email'/>
                 <button className={ Styles.btn }>Send</button>

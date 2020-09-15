@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { book } from './book';
 
 // Page
-import { Home, NewPassword, Dialogs, Profile, Users } from '../page';
+import { Home, NewPassword, Dialogs, Profile, Users, Login } from '../page';
 
 const Private = (props) => {
 
@@ -13,7 +13,7 @@ const Private = (props) => {
             <Route
                 exact
                 path={ book.home }
-                render={ () => <Home {...props}/> }
+                render={ () => <Home {...props} /> }
             />
             <Route
                 path={ book.dialogs }
@@ -21,16 +21,17 @@ const Private = (props) => {
             />
             <Route
                 path={ book.users }
-                render={ () => <Users {...props}/> }
+                render={ () => <Users {...props} /> }
             />
             <Route
                 path={ book.profile }
-                render={ () => <Profile {...props}/> }
+                render={ () => <Profile {...props} /> }
             />
             <Route
                 path={ book.newPassword }
                 component={ NewPassword }
             />
+            <Redirect to={ book.login } />
         </Switch>
     );
 };

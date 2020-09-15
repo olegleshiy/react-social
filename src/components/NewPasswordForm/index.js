@@ -6,7 +6,7 @@ import Styles from './style.module.css';
 
 const NewPasswordForm = () => {
     return (
-        <div className={Styles.wrapper}>
+        <div className={'wrapper-form'}>
             <form className={ Styles.newPasswordForm }>
                 <h1>New Password</h1>
                 <input type='password' placeholder='Password'/>

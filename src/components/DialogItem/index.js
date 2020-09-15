@@ -9,8 +9,10 @@ const DialogItem = ({ users }) => {
     const listUser = users.map(user => {
         return (
             <div className={ Styles.item } key={ user.id }>
-                <img className={ Styles.avatar }
-                     src={ user.avatar } alt=''/>
+                <div>
+                    <img className={ Styles.avatar }
+                         src={ user.avatar } alt=''/>
+                </div>
                 <div className={ Styles.userInfo }>
                     <NavLink to={`/dialogs/${user.id}`} className={ Styles.userName }>{ user.name }</NavLink>
                     <span className={ `${ Styles.userStatus } ${ Styles.online }` }>{ user.status }</span>

@@ -1,25 +1,18 @@
 // Core
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Components
 import { Spinner, Footer, Header, Navbar } from '../components';
-//import { useSpinner } from '../components/Spinner/SpinnerContext';
 
 // Container
 import UsersContainer from '../containers/UsersContainer';
 
 const Users = (props) => {
 
-    // const toggle = useSpinner();
-    //
-    // useEffect(() => {
-    //     toggle.toggle();
-    // });
-
     return (
         <div className={ 'wrapper' }>
             <Spinner {...props}/>
-            <Header/>
+            <Header {...props}/>
             <Navbar/>
             <UsersContainer />
             <Footer/>

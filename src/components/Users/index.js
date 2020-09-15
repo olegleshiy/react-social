@@ -11,7 +11,6 @@ import Styles from './style.module.css';
 class Users extends Component {
 
     componentDidMount() {
-        console.log("PRR", this.props);
         this.props.fetchUsers(1, 30);
     }
 

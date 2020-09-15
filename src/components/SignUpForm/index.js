@@ -6,7 +6,7 @@ import Styles from './style.module.css';
 
 const SignUpForm = () => {
     return (
-        <div className={Styles.wrapper}>
+        <div className={'wrapper-form'}>
             <form className={ Styles.signUpForm }>
                 <h1>Sign Up</h1>
                 <input type='text' placeholder='First Name'/>

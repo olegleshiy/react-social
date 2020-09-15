@@ -34,7 +34,7 @@ const MessageItem = (props) => {
             <div>
                 { listMessage }
             </div>
-            <form className={ Styles.chatMessage }>
+            <div className={ Styles.chatMessage }>
                 <textarea
                     ref={textareaMessageRef}
                     name='post'
@@ -48,7 +48,7 @@ const MessageItem = (props) => {
                     className={ 'btn' }
                     onClick={ handleCreateMessage }
                 >Send</button>
-            </form>
+            </div>
         </div>
     )
 }

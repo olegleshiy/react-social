@@ -4,11 +4,11 @@ import React from 'react';
 // Components
 import { Footer, Header, NewPasswordForm, Spinner } from '../components';
 
-const NewPassword = () => {
+const NewPassword = (props) => {
     return (
         <div className={ 'wrapper-auth' }>
             <Spinner />
-            <Header />
+            <Header {...props}/>
             <NewPasswordForm />
             <Footer />
         </div>

@@ -12,7 +12,7 @@ const Profile = (props) => {
     return (
         <div className={ 'wrapper profile-page' }>
             <Spinner {...props}/>
-            <Header/>
+            <Header {...props}/>
             <Navbar/>
             <ProfileContainer />
             <Footer/>

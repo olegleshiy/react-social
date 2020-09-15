@@ -4,11 +4,11 @@ import React from 'react';
 // Components
 import { Footer, Header, SignUpForm, Spinner } from '../components';
 
-const SignUp = () => {
+const SignUp = (props) => {
     return (
         <div className={ 'wrapper-auth' }>
             <Spinner />
-            <Header />
+            <Header {...props}/>
             <SignUpForm />
             <Footer />
         </div>

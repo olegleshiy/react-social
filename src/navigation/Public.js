@@ -9,9 +9,9 @@ import { book } from './book';
 const Public = () => {
     return (
         <Switch>
-            <Route exact path={ book.login } component={ Login }/>
-            <Route exact path={ book.signUp } component={ SignUp }/>
-            <Route path={ book.resetPassword } component={ ResetPassword }/>
+            <Route exact path={ book.login } render={ () => <Login />}/>
+            <Route exact path={ book.signUp } render={ () => <SignUp /> }/>
+            <Route path={ book.resetPassword } render={ () => <ResetPassword /> }/>
             <Redirect to={ book.login }/>
         </Switch>
     );

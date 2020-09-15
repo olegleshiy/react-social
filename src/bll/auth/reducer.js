@@ -2,7 +2,7 @@
 import { types } from './types';
 
 const initialState = {
-    isAuthenticated: false,
+    isAuthenticated: true,
     userId: null,
     isInitialized:   false,
 };

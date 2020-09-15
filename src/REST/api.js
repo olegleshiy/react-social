@@ -110,6 +110,15 @@ export const api = {
                 // },
             });
         },
+        follow (status, id) {
+            return fetch(`${MAIN_URL}/follow/${id}`, {
+                method:  'POST',
+                // headers: {
+                //     Authorization: this.token,
+                // },
+                body: status
+            });
+        },
     },
     user: {
         fetch (id) {

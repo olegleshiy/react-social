@@ -4,7 +4,7 @@ import React from 'react';
 // Components
 import { Footer, Header, NewPasswordForm, Spinner } from '../components';
 
-const NewPassword = (props) => {
+const NewPassword = React.memo((props) => {
     return (
         <div className={ 'wrapper-auth' }>
             <Spinner />
@@ -13,6 +13,6 @@ const NewPassword = (props) => {
             <Footer />
         </div>
     );
-};
+});
 
 export default NewPassword;

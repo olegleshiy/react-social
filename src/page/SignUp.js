@@ -4,7 +4,7 @@ import React from 'react';
 // Components
 import { Footer, Header, SignUpForm, Spinner } from '../components';
 
-const SignUp = (props) => {
+const SignUp = React.memo((props) => {
     return (
         <div className={ 'wrapper-auth' }>
             <Spinner />
@@ -13,6 +13,6 @@ const SignUp = (props) => {
             <Footer />
         </div>
     );
-};
+});
 
 export default SignUp;

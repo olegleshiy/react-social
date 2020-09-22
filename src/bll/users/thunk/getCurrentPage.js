@@ -1,5 +1,3 @@
-// Core
-
 // Instruments
 import { api } from '../../../REST';
 import { actions as uiActions } from '../../ui/actions';
@@ -15,7 +13,7 @@ export function getCurrentPage (page = '', count = '') {
             const data = await response.json();
 
             if (response.status !== 200) {
-                throw new Error('Some error fetchUsers');
+                throw new Error('Some error getCurrentPage');
             }
             dispatch(actions.setCurrentPageAC(page));
             dispatch(actions.showAllUsersAC(data.items));

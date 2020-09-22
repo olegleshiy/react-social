@@ -7,7 +7,7 @@ import { Spinner, Footer, Header, Navbar } from '../components';
 // Container
 import ProfileContainer from '../containers/ProfileContainer';
 
-const Profile = (props) => {
+const Profile = React.memo((props) => {
 
     return (
         <div className={ 'wrapper profile-page' }>
@@ -18,6 +18,6 @@ const Profile = (props) => {
             <Footer/>
         </div>
     );
-};
+});
 
 export default Profile;

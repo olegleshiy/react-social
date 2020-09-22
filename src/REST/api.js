@@ -1,5 +1,6 @@
 // Instruments
 import { MAIN_URL, groupId } from './config';
+import { API_KEY } from '../constants/env';
 
 export const api = {
     get token () {
@@ -110,13 +111,15 @@ export const api = {
                 // },
             });
         },
-        follow (status, id) {
+        follow (id) {
             return fetch(`${MAIN_URL}/follow/${id}`, {
                 method:  'POST',
-                // headers: {
-                //     Authorization: this.token,
-                // },
-                body: status
+                headers: {
+                    "API-KEY": API_KEY,
+                    //Authorization: this.token,
+                },
+                //body: status,
+                credentials: true,
             });
         },
     },

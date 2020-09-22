@@ -7,7 +7,7 @@ import { Spinner, Footer, Header, Navbar, Catcher } from '../components';
 // Container
 import DashboardContainer from '../containers/DashboardContainer';
 
-const Home = (props) => {
+const Home = React.memo((props) => {
 
     return (
         <Catcher>
@@ -20,6 +20,6 @@ const Home = (props) => {
             </div>
         </Catcher>
     );
-};
+});
 
 export default Home;

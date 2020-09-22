@@ -7,7 +7,7 @@ import { Spinner, Footer, Header, Navbar } from '../components';
 // Container
 import DialogContainer from '../containers/DialogContainer';
 
-const Dialogs = (props) => {
+const Dialogs = React.memo((props) => {
 
     return (
         <div className={ 'wrapper' }>
@@ -18,6 +18,6 @@ const Dialogs = (props) => {
             <Footer />
         </div>
     );
-};
+});
 
 export default Dialogs;

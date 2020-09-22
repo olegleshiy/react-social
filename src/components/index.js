@@ -1,6 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
-import Button from './Button';
+import { Button } from './Button';
 import Dashboard from './Dashboard';
 import Spinner from './Spinner';
 import Navbar from './Navbar';

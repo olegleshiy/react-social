@@ -1,7 +1,8 @@
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Dashboard } from '../components';
 import { actions } from '../bll/dashboard/actions';
-import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => ({
     newPostText: state.dashboardPage.newPostText,
@@ -17,9 +18,7 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-let withUrlDateDashboard = withRouter(Dashboard);
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withUrlDateDashboard);
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps),
+)(Dashboard);

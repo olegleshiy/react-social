@@ -7,7 +7,7 @@ import { Spinner, Footer, Header, Navbar } from '../components';
 // Container
 import UsersContainer from '../containers/UsersContainer';
 
-const Users = (props) => {
+const Users = React.memo((props) => {
 
     return (
         <div className={ 'wrapper' }>
@@ -18,6 +18,6 @@ const Users = (props) => {
             <Footer/>
         </div>
     );
-};
+});
 
 export default Users;

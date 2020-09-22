@@ -6,6 +6,7 @@ import Styles from './style.module.css';
 
 class MyProfile extends Component {
     componentDidMount() {
+        console.log('->', this.props);
         //this.props.fetchUser(this.props.match.params.id);
     }
 

@@ -8,7 +8,6 @@ export function fetchUsers (page = '', count = '') {
     return async (dispatch) => {
         try {
             dispatch(uiActions.fetchingStart());
-
             const response = await api.users.fetch(page, count);
             const data = await response.json();
 

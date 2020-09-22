@@ -29,7 +29,7 @@ const Private = (props) => {
             />
             <Route
                 path={ book.newPassword }
-                component={ NewPassword }
+                render={ () => <NewPassword {...props} /> }
             />
             <Redirect to={ book.login } />
         </Switch>

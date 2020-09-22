@@ -7,6 +7,7 @@ import avatar from '../../assets/images/user.png';
 
 // Style
 import Styles from './style.module.css';
+
 import { followUsers } from '../../bll/users/thunk/followUsers';
 
 class Users extends Component {
@@ -16,7 +17,7 @@ class Users extends Component {
     }
 
     handleClick = () => {
-        this.props.getUsersMore();
+        //this.props.getUsersMore();
     };
 
     handleSelectUser(e) {
@@ -42,10 +43,10 @@ class Users extends Component {
                         <NavLink
                             data-id={ user.id }
                             to={ `/profile/${ user.id }` }
-                            onClick={this.handleSelectUser}
+                            onClick={ this.handleSelectUser }
                         >
                             <img className={ Styles.avatar }
-                                 src={ user.photos.small || avatar } alt='' />
+                                 src={ user.photos.small || avatar } alt=''/>
                         </NavLink>
                     </div>
                     <div className={ Styles.userInfo }>
@@ -54,7 +55,7 @@ class Users extends Component {
                                 data-id={ user.id }
                                 to={ `/profile/${ user.id }` }
                                 className={ Styles.userName }
-                                onClick={this.handleSelectUser}
+                                onClick={ this.handleSelectUser }
                             >{ user.name }</NavLink>
                         </div>
                         <div className={ Styles.locationWrapper }>
@@ -81,29 +82,29 @@ class Users extends Component {
             <div className={ Styles.content }>
                 <div className={ Styles.pagination }>
                     <>
-                    { pages.map((p, i) => {
-                        if (i === 0 || i === 1 || i === 2) {
-                            return (
-                        <span key={ p } data-id={ p }
-                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
-                              onClick={ this.handlePaginationClick }>{ p }</span>
+                        { pages.map((p, i) => {
+                            if (i === 0 || i === 1 || i === 2) {
+                                return (
+                                    <span key={ p } data-id={ p }
+                                          className={ `${ this.props.currentPage === p && Styles.selectedPage }` }
+                                          onClick={ this.handlePaginationClick }>{ p }</span>
 
-                            )
-                        } else if (i === pages.length - 1 || i === pages.length - 2 || i === pages.length - 3) {
-                            return (
-                        <span key={ p } data-id={ p }
-                              className={ `${this.props.currentPage === p && Styles.selectedPage}` }
-                              onClick={ this.handlePaginationClick }>{ p }</span>
-                            )
+                                );
+                            } else if (i === pages.length - 1 || i === pages.length - 2 || i === pages.length - 3) {
+                                return (
+                                    <span key={ p } data-id={ p }
+                                          className={ `${ this.props.currentPage === p && Styles.selectedPage }` }
+                                          onClick={ this.handlePaginationClick }>{ p }</span>
+                                );
 
-                        } else if (i === 3) {
-                            return (
+                            } else if (i === 3) {
+                                return (
 
-                        <span key='dsg36236sd'>...</span>
-                            )
-                        }
+                                    <span key='dsg36236sd'>...</span>
+                                );
+                            }
 
-                    }) }
+                        }) }
                     </>
                 </div>
 

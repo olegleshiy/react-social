@@ -10,7 +10,8 @@ import './style.css';
 const App = (props) => {
 
     useEffect(() => {
-        props.initialize()
+        props.initialize();
+        props.auth();
     }, [])
 
     return (

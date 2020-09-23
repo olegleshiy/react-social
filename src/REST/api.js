@@ -7,6 +7,15 @@ export const api = {
         return localStorage.getItem('token');
     },
     auth: {
+        auth () {
+            return fetch(`${MAIN_URL}/auth/me`, {
+                method:  'GET',
+                headers: {
+                    "API-KEY": API_KEY,
+                },
+                credentials: true,
+            });
+        },
         signup (userInfo) {
             return fetch(`${MAIN_URL}/user/${groupId}`, {
                 method:  'POST',

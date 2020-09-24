@@ -9,11 +9,14 @@ export const api = {
     auth: {
         auth () {
             return fetch(`${MAIN_URL}/auth/me`, {
-                method:  'GET',
-                headers: {
-                    "API-KEY": API_KEY,
-                },
-                credentials: true,
+                method:  'GET', // *GET, POST, PUT, DELETE
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                // headers: {
+                //     "API-KEY": API_KEY,
+                // },
+                credentials: 'include', //true
+                //credentials: true,
             });
         },
         signup (userInfo) {
@@ -128,7 +131,20 @@ export const api = {
                     //Authorization: this.token,
                 },
                 //body: status,
-                credentials: true,
+                credentials: 'include',
+                //credentials: true,
+            });
+        },
+        unfollow (id) {
+            return fetch(`${MAIN_URL}/follow/${id}`, {
+                method:  'DELETE',
+                headers: {
+                    "API-KEY": API_KEY,
+                    //Authorization: this.token,
+                },
+                //body: status,
+                credentials: 'include',
+                //credentials: true,
             });
         },
     },

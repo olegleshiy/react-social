@@ -8,6 +8,9 @@ const mapStateToProps = state => ({
     fetching: state.ui.fetching,
     isAuthenticated: state.auth.isAuthenticated,
     isInitialized: state.auth.isInitialized,
+    userId: state.auth.userId,
+    email: state.auth.email,
+    login: state.auth.login,
 });
 
 const mapDispatchToProps = {

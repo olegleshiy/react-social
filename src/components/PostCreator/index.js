@@ -1,5 +1,5 @@
 // Core
-import React, { useState } from 'react';
+import React from 'react';
 
 // Style
 import Styles from './style.module.css';

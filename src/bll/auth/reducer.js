@@ -2,8 +2,10 @@
 import { types } from './types';
 
 const initialState = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     userId: null,
+    email: null,
+    login: null,
     isInitialized:   false,
 };
 

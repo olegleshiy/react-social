@@ -8,7 +8,7 @@ import avatar from '../../assets/images/user.png';
 // Style
 import Styles from './style.module.css';
 
-import { followUsers } from '../../bll/users/thunk/followUsers';
+//import { followUsers } from '../../bll/users/thunk/followUsers';
 
 class Users extends Component {
 
@@ -33,6 +33,9 @@ class Users extends Component {
 
     handleFollow = (e) => {
         this.props.followUsers(e.target.dataset.id);
+    };
+    handleUnFollow = (e) => {
+        this.props.unFollowUsers(e.target.dataset.id);
     };
 
     render() {

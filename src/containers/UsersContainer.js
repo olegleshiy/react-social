@@ -3,6 +3,7 @@ import { Users } from '../components';
 import { actions } from '../bll/users/actions';
 import { fetchUsers } from '../bll/users/thunk/fetchUsers';
 import { followUsers } from '../bll/users/thunk/followUsers';
+import { unFollowUsers } from '../bll/users/thunk/unFollowUsers';
 import { getCurrentPage } from '../bll/users/thunk/getCurrentPage';
 
 const mapStateToProps = state => ({
@@ -19,6 +20,7 @@ const mapDispatchToProps = {
     fetchUsers,
     getCurrentPage,
     followUsers,
+    unFollowUsers,
     showAllUsers: actions.showAllUsersAC,
     getMoreUsers: actions.getMoreUsersAC,
     setTotalUsersCount: actions.setTotalUsersCountAC,

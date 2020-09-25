@@ -8,7 +8,6 @@ import { PostCreator, Posts, MyProfile } from '../index';
 import Styles from './style.module.css';
 
 const Dashboard = (props) => {
-
     return (
         <div className={ Styles.content }>
             <MyProfile {...props}/>

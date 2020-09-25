@@ -6,11 +6,12 @@ import Styles from './style.module.css';
 
 class Profile extends Component {
     componentDidMount() {
-        this.props.fetchUser(this.props.match.params.id);
+        this.props.getProfile(this.props.match.params.id);
     }
 
     render() {
         const { user: { photos, fullName, aboutMe } } = this.props;
+
         if (!this.props.user) {
             return <div>Loading...</div>;
         }

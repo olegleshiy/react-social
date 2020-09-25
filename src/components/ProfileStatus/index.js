@@ -7,18 +7,29 @@ import Styles from './style.module.css';
 class ProfileStatus extends Component {
     state = {
         editMode: false,
-        status: 'Hello World',
+        status: this.props.status,
     };
-
     componentDidMount() {
-
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status,
+            });
+        }
     }
 
     handleStatus = () => {
         this.setState({
             editMode: !this.state.editMode,
         });
+        this.props.updateStatus(this.state.status);
     };
+    handleStatusChange = (e) => {
+        this.setState({
+            status: e.target.value,
+        })
+    }
 
     render() {
 
@@ -26,9 +37,9 @@ class ProfileStatus extends Component {
             <div className={ Styles.profileStatus }>
                 {
                     this.state.editMode ?
-                        <input type="text" value={ this.state.status } onBlur={ this.handleStatus }
+                        <input type="text" value={ this.state.status } onBlur={ this.handleStatus } onChange={this.handleStatusChange}
                                autoFocus={ true } /> :
-                        <p onDoubleClick={ this.handleStatus }>{ this.state.status }</p>
+                        <p onDoubleClick={ this.handleStatus }>{ this.props.status }</p>
                 }
 
             </div>

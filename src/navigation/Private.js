@@ -7,7 +7,6 @@ import { book } from './book';
 import { Home, NewPassword, Dialogs, Profile, Users } from '../page';
 
 const Private = (props) => {
-
     return (
         <Switch>
             <Route

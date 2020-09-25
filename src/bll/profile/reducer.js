@@ -3,6 +3,7 @@ import { types } from './types';
 
 const initialState = {
     user: {},
+    status: '',
 };
 
 export const profileReducer = (state = initialState, action) => {
@@ -11,7 +12,12 @@ export const profileReducer = (state = initialState, action) => {
         case types.SET_USER_PROFILE:
             return {
                 ...state,
-                user:  action.payload,
+                user: action.payload,
+            };
+        case types.SET_USER_STATUS:
+            return {
+                ...state,
+                status: action.payload,
             };
         default:
             return state;

@@ -11,6 +11,7 @@ class MyProfile extends Component {
     state = {}
 
     componentDidMount() {
+        this.props.getStatus(this.props.userId);
     }
 
     render() {
@@ -29,7 +30,7 @@ class MyProfile extends Component {
                     <div className={ Styles.userInfo }>
                         <h3 className={ Styles.titleName }>Oleh Zahrebelnyi</h3>
                         <p className={ Styles.infoAddress }>Kyiv, Ukraine</p>
-                        <ProfileStatus />
+                        <ProfileStatus status={this.props.status} updateStatus={this.props.updateStatus}/>
                     </div>
                 </div>
             </>

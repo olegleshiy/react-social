@@ -5,19 +5,19 @@ import { api } from '../../../REST';
 import { actions as uiActions } from '../../ui/actions';
 import { actions } from '../actions';
 
-export function fetchUser (id) {
+export function getStatus (id) {
     return async (dispatch) => {
         try {
             dispatch(uiActions.fetchingStart());
 
-            const response = await api.user.fetch(id);
+            const response = await api.users.getStatus(id);
             const data = await response.json();
 
             if (response.status !== 200) {
-                throw new Error('Some error fetchUsers');
+                throw new Error('Some error getStatus');
             }
-
-            dispatch(actions.setUserProfileAC(data));
+            console.log("GET_ST", data);
+            dispatch(actions.setUserStatusAC(data));
 
         } catch (error) {
             console.log(error);

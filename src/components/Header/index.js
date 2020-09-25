@@ -9,7 +9,6 @@ import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import Styles from './style.module.css';
 
 const Header = (props) => {
-    console.log(props);
     return (
         <header className={ Styles.header }>
             <div>LESHIY_DEV</div>

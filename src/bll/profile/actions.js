@@ -8,4 +8,10 @@ export const actions = {
             payload,
         };
     },
+    setUserStatusAC: (payload) => {
+        return {
+            type: types.SET_USER_STATUS,
+            payload,
+        };
+    },
 };

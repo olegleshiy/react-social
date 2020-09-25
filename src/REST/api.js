@@ -125,6 +125,36 @@ export const api = {
                 //credentials: true,
             });
         },
+        getProfile (id) {
+            return fetch(`${MAIN_URL}/profile/${id}`, {
+                method:  'GET',
+                // headers: {
+                //     Authorization: this.token,
+                // },
+                credentials: 'include',
+            });
+        },
+        getStatus (id) {
+            return fetch(`${MAIN_URL}/profile/status/${id}`, {
+                method:  'GET',
+                // headers: {
+                //     Authorization: this.token,
+                // },
+                credentials: 'include',
+            });
+        },
+        updateStatus (status) {
+            return fetch(`${MAIN_URL}/profile/status`, {
+                method:  'PUT',
+                headers: {
+                    "API-KEY": API_KEY,
+                    //Authorization:  this.token,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({status}),
+                credentials: 'include',
+            });
+        },
         follow (id) {
             return fetch(`${MAIN_URL}/follow/${id}`, {
                 method:  'POST',
@@ -147,17 +177,6 @@ export const api = {
                 //body: status,
                 credentials: 'include',
                 //credentials: true,
-            });
-        },
-    },
-    user: {
-        fetch (id) {
-            return fetch(`${MAIN_URL}/profile/${id}`, {
-                method:  'GET',
-                // headers: {
-                //     Authorization: this.token,
-                // },
-                credentials: 'include',
             });
         },
     },

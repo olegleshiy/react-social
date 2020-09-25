@@ -10,12 +10,13 @@ export function auth () {
             dispatch(uiActions.fetchingStart());
 
             const response = await api.auth.auth();
-            const data = await response.json();
+            const { data } = await response.json();
 
             if (response.status !== 200) {
                 throw new Error('Some error authUser');
             }
-            dispatch(actions.authenticate(data.userId));
+
+            dispatch(actions.authenticate(data));
         } catch (error) {
             console.log(error);
             dispatch(uiActions.emitError(error));

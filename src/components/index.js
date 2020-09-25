@@ -17,6 +17,7 @@ import MessageItem from './MessageItem';
 import Profile from './Profile';
 import Users from './Users';
 import MyProfile from './MyProfile';
+import ProfileStatus from './ProfileStatus';
 import Catcher from './Catcher';
 
 export {
@@ -39,5 +40,6 @@ export {
     Profile,
     Users,
     MyProfile,
+    ProfileStatus,
     Catcher,
 }

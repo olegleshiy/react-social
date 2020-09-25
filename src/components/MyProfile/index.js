@@ -4,16 +4,17 @@ import React, { Component } from 'react';
 // Style
 import Styles from './style.module.css';
 
+//Components
+import ProfileStatus from '../ProfileStatus';
+
 class MyProfile extends Component {
+    state = {}
+
     componentDidMount() {
-        console.log('->MY-profile ', this.props);
     }
 
     render() {
-        // const { user: { photos, fullName, aboutMe } } = this.props;
-        // if (!this.props.user) {
-        //     return <div>Loading...</div>;
-        // }
+
         return (
             <>
                 <div className={ Styles.banner }>
@@ -28,6 +29,7 @@ class MyProfile extends Component {
                     <div className={ Styles.userInfo }>
                         <h3 className={ Styles.titleName }>Oleh Zahrebelnyi</h3>
                         <p className={ Styles.infoAddress }>Kyiv, Ukraine</p>
+                        <ProfileStatus />
                     </div>
                 </div>
             </>

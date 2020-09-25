@@ -8,8 +8,6 @@ import avatar from '../../assets/images/user.png';
 // Style
 import Styles from './style.module.css';
 
-//import { followUsers } from '../../bll/users/thunk/followUsers';
-
 class Users extends Component {
 
     componentDidMount() {
@@ -66,8 +64,12 @@ class Users extends Component {
                                 <span className={ `${ Styles.userLocation }` }>{ user.city }, { user.country }</span>
                                 <span className={ `${ Styles.userStatus } ${ Styles.online }` }>{ user.status }</span>
                             </div>
-                            <button onClick={ this.handleFollow } className={ Styles.followBtn }
-                                    data-id={ user.id }>{ user.followed ? 'Unfollow' : 'Follow' }</button>
+                            {user.followed ?
+                                <button onClick={ this.handleUnFollow } className={ Styles.followBtn }
+                                        data-id={ user.id }>Unfollow</button> :
+                                <button onClick={ this.handleFollow } className={ Styles.followBtn }
+                                        data-id={ user.id }>Follow</button>
+                            }
                         </div>
                     </div>
                 </div>

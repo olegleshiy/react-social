@@ -27,7 +27,7 @@ export const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.map(user => {
-                    if(user.id === action.payload) {
+                    if(user.id === +action.payload) {
                         return {
                             ...user,
                             followed: !user.followed

@@ -121,6 +121,8 @@ export const api = {
                 // headers: {
                 //     Authorization: this.token,
                 // },
+                credentials: 'include',
+                //credentials: true,
             });
         },
         follow (id) {
@@ -155,6 +157,7 @@ export const api = {
                 // headers: {
                 //     Authorization: this.token,
                 // },
+                credentials: 'include',
             });
         },
     },

@@ -17,7 +17,7 @@ export function unFollowUsers (id) {
             }
 
             console.log("DATAUNF", data);
-            dispatch(actions.followUserAC)
+            dispatch(actions.followUserAC(id))
         } catch (error) {
             console.log(error);
             dispatch(uiActions.emitError(error));
